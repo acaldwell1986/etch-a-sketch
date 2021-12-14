@@ -1,7 +1,8 @@
 const container = document.querySelector('.container');
 const grid = document.querySelector('.grid');
 const reset = document.querySelector('.reset-panel');
-const colorButtons = document.querySelectorAll('.option-buttons')
+const colorButtons = document.querySelectorAll('.option-buttons');
+const sizeButtons = document.querySelectorAll('.size-buttons');
 
 let gridSize = 1600;
 let mouseColor = 'orange';
@@ -30,24 +31,9 @@ for (let i = 0; i < gridSize; i++) {
     }, false);
 }
 
-
-
-
 colorButtons.forEach(button => { button.addEventListener('click', colorPicker) });
 
 reset.addEventListener('click', resetGrid);
-
-// function newGridSize(size) {
-//     let newSize = size * size;
-//     console.log(gridSize);
-//     const cells = document.querySelectorAll('div.cell')
-    
-    
-
-//     if (newSize === '15') {
-
-//     }
-// }
 
 function deleteGrid(parent) {
     while(parent.firstChild) {
@@ -56,17 +42,50 @@ function deleteGrid(parent) {
 }
 
 function reDrawGrid(size) {
-    gridSize = size * size;
+    let newSize = size.target.id;
+    gridSize = newSize * newSize;
     deleteGrid(grid);
-
-    for (let i = 0; i < gridSize; i++) {
-        const cell = document.createElement('div');
-        grid.appendChild(cell);
-        cell.classList.add('cell');
-        cell.addEventListener("mouseover", function(e) {
-            e.target.style.background = mouseColor;       
-        }, false);
+    
+    if (newSize === '15') {
+        
+        for (let i = 0; i < gridSize; i++) {
+            const cell = document.createElement('div');
+            grid.appendChild(cell);
+            cell.classList.add('cell');
+            cell.addEventListener("mouseover", function(e) {
+                e.target.style.background = mouseColor;       
+            }, false);
+        }
+        grid.style.cssText = "grid-template-columns: repeat(15, 40px);grid-template-rows: repeat(15, 40px);";
     }
+
+    else if (newSize === '25') {
+            for (let i = 0; i < gridSize; i++) {
+                const cell = document.createElement('div');
+                grid.appendChild(cell);
+                cell.classList.add('cell');
+                cell.addEventListener("mouseover", function(e) {
+                    e.target.style.background = mouseColor;       
+                }, false);
+            }
+            grid.style.cssText = "grid-template-columns: repeat(25, 25px);grid-template-rows: repeat(25, 25px);";
+        }
+    
+
+    else {
+        for (let i = 0; i < gridSize; i++) {
+            const cell = document.createElement('div');
+            grid.appendChild(cell);
+            cell.classList.add('cell');
+            cell.addEventListener("mouseover", function(e) {
+                e.target.style.background = mouseColor;       
+            }, false);
+        }
+        grid.style.cssText = "grid-template-columns: repeat(40, 15px);grid-template-rows: repeat(40, 15px);";
+    }
+    
+
+    
 }
 
 function resetGrid() {
@@ -75,9 +94,9 @@ function resetGrid() {
         cells[i].style.background = "white"
      }
 }
-//remove marks in grid -- set with timer at the moment
-// setTimeout(function() {
-//     for (let i = 0; i < 1600; i++) {
-//        cells[i].style.background = "white"
-//     }
-// }, 5000);
+
+
+    
+
+sizeButtons.forEach(button => { button.addEventListener('click', reDrawGrid) });
+
