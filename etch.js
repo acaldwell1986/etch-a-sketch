@@ -19,50 +19,63 @@ function colorPicker(color) {
     }
 }
 
-
 for (let i = 0; i < gridSize; i++) {
     const cell = document.createElement('div');
     grid.appendChild(cell);
     cell.classList.add('cell');
     //cell.textContent = `${i}`; - populates cells with numbers for quick ref
     
-    
     cell.addEventListener("mouseover", function(e) {
-        e.target.style.background = mouseColor;
-
-        setTimeout(function() {
-            e.target.style.background = "red";
-        }, 1000);
+        e.target.style.background = mouseColor;       
     }, false);
 }
 
-const cells = document.querySelectorAll('.cell');
 
-function resetGrid() {
-    for (let i = 0; i < gridSize; i++) {
-        cells[i].style.background = "white"
-     }
-}
 
 
 colorButtons.forEach(button => { button.addEventListener('click', colorPicker) });
 
 reset.addEventListener('click', resetGrid);
 
-function newGridSize(size) {
-    let newSize = size * size;
+// function newGridSize(size) {
+//     let newSize = size * size;
+//     console.log(gridSize);
+//     const cells = document.querySelectorAll('div.cell')
     
-    console.log(gridSize);
-    const cells = document.querySelectorAll('div.cell')
+    
 
-    if (newSize === gridSize) {
-        
+//     if (newSize === '15') {
+
+//     }
+// }
+
+function deleteGrid(parent) {
+    while(parent.firstChild) {
+        parent.removeChild(parent.firstChild)
     }
 }
 
+function reDrawGrid(size) {
+    gridSize = size * size;
+    deleteGrid(grid);
 
+    for (let i = 0; i < gridSize; i++) {
+        const cell = document.createElement('div');
+        grid.appendChild(cell);
+        cell.classList.add('cell');
+        cell.addEventListener("mouseover", function(e) {
+            e.target.style.background = mouseColor;       
+        }, false);
+    }
+}
 
-
+function resetGrid() {
+    const cells = document.querySelectorAll('.cell');
+    for (let i = 0; i < gridSize; i++) {
+        cells[i].style.background = "white"
+        console.log("piss")
+     }
+}
 //remove marks in grid -- set with timer at the moment
 // setTimeout(function() {
 //     for (let i = 0; i < 1600; i++) {
