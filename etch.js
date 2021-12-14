@@ -1,13 +1,16 @@
 const container = document.querySelector('.container');
 const grid = document.querySelector('.grid');
 const reset = document.querySelector('.reset-panel');
+const colorButtons = document.querySelectorAll('.option-buttons')
 
-
-let gridSize = 16;
+let gridSize = 1600;
 let mouseColor = 'orange';
 
+console.log(colorButtons)
 
 function colorPicker(color) {
+    mouseColor = color.target.textContent;
+
     if (color === 'orange') {
         mouseColor = 'orange';
     }
@@ -17,8 +20,7 @@ function colorPicker(color) {
 }
 
 
-
-for (let i = 0; i < 1600; i++) {
+for (let i = 0; i < gridSize; i++) {
     const cell = document.createElement('div');
     grid.appendChild(cell);
     cell.classList.add('cell');
@@ -26,7 +28,7 @@ for (let i = 0; i < 1600; i++) {
     
     
     cell.addEventListener("mouseover", function(e) {
-        e.target.style.background = "orange";
+        e.target.style.background = mouseColor;
 
         setTimeout(function() {
             e.target.style.background = "red";
@@ -37,13 +39,26 @@ for (let i = 0; i < 1600; i++) {
 const cells = document.querySelectorAll('.cell');
 
 function resetGrid() {
-    for (let i = 0; i < 1600; i++) {
+    for (let i = 0; i < gridSize; i++) {
         cells[i].style.background = "white"
      }
 }
 
+
+colorButtons.forEach(button => { button.addEventListener('click', colorPicker) });
+
 reset.addEventListener('click', resetGrid);
 
+function newGridSize(size) {
+    let newSize = size * size;
+    
+    console.log(gridSize);
+    const cells = document.querySelectorAll('div.cell')
+
+    if (newSize === gridSize) {
+        
+    }
+}
 
 
 

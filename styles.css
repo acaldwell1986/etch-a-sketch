@@ -8,6 +8,13 @@ html, body {
     width: 100%;
 }
 
+
+.shadow {
+    box-shadow: 5px 5px  10px rgba(0,0,0,0.6);
+    border-radius: 25px;
+    margin-top: 50px;
+}
+
 .container {
     background: red;
     display: flex;
@@ -35,26 +42,22 @@ html, body {
   }
 
 
-  header {
-    background: black;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
 h1 {
     font-size: 3em;
     color: #fff;
 }
 
 
-.options-panel {
+.option-panel {
     background: red;
     width: 900px;
     height: 100px;
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }
 
 
@@ -75,8 +78,3 @@ h1 {
     background: white;
 }
 
-
-.test {
-    box-shadow: 5px 5px  10px rgba(0,0,0,0.6);
-    border-radius: 25px;
-}
