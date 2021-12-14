@@ -30,24 +30,6 @@ html, body {
     grid-gap: 0px;
     border: 5px solid black;
   }
-
-/* 15x15
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(15, 40px);
-    grid-template-rows: repeat(15, 40px);
-    grid-gap: 0px;
-    border: 5px solid black;
-  } */
-
-/* 25x25
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(25, 25px);
-    grid-template-rows: repeat(25, 25px);
-    grid-gap: 0px;
-    border: 5px solid black;
-  } */
   
   .cell {
      /* center the cell content */
@@ -60,12 +42,10 @@ html, body {
     background: white;
   }
 
-
 h1 {
     font-size: 3em;
     color: #fff;
 }
-
 
 .option-panel {
     background: red;
@@ -79,7 +59,6 @@ h1 {
     justify-content: space-around;
 }
 
-
 .reset-panel {
     background: red;
     width: 900px;
@@ -90,7 +69,6 @@ h1 {
     justify-content: center;
     align-items: center;
 }
-
 
 .reset-panel button {
     height: 50%;

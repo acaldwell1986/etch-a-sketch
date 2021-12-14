@@ -9,6 +9,7 @@ let mouseColor = 'orange';
 
 console.log(colorButtons)
 
+//allows user to change color type
 function colorPicker(color) {
     mouseColor = color.target.textContent;
 
@@ -20,6 +21,7 @@ function colorPicker(color) {
     }
 }
 
+//initializes the grid for starting
 for (let i = 0; i < gridSize; i++) {
     const cell = document.createElement('div');
     grid.appendChild(cell);
@@ -70,7 +72,6 @@ function reDrawGrid(size) {
             }
             grid.style.cssText = "grid-template-columns: repeat(25, 25px);grid-template-rows: repeat(25, 25px);";
         }
-    
 
     else {
         for (let i = 0; i < gridSize; i++) {
@@ -83,9 +84,6 @@ function reDrawGrid(size) {
         }
         grid.style.cssText = "grid-template-columns: repeat(40, 15px);grid-template-rows: repeat(40, 15px);";
     }
-    
-
-    
 }
 
 function resetGrid() {
@@ -95,8 +93,5 @@ function resetGrid() {
      }
 }
 
-
-    
-
-sizeButtons.forEach(button => { button.addEventListener('click', reDrawGrid) });
+sizeButtons.forEach(button => { button.addEventListener('click', reDrawGrid)});
 
