@@ -75,3 +75,10 @@ h1 {
     background: white;
 }
 
+p {
+    margin: 0;
+}
+
+.color-options {
+    background: green;
+}
