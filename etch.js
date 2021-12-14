@@ -73,7 +73,6 @@ function resetGrid() {
     const cells = document.querySelectorAll('.cell');
     for (let i = 0; i < gridSize; i++) {
         cells[i].style.background = "white"
-        console.log("piss")
      }
 }
 //remove marks in grid -- set with timer at the moment
