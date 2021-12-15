@@ -4,10 +4,12 @@ const reset = document.querySelector('.reset-panel');
 const colorButtons = document.querySelectorAll('.option-buttons');
 const sizeButtons = document.querySelectorAll('.size-buttons');
 
-let gridSize = 1600;
+let slider = document.getElementById("gridRange");
+
+let gridSize = 2500;
 let mouseColor = 'orange';
 
-console.log(colorButtons)
+//slider.addEventListener('input', reDrawGrid, false);
 
 //allows user to change color type
 function colorPicker(color) {
@@ -26,7 +28,9 @@ for (let i = 0; i < gridSize; i++) {
     const cell = document.createElement('div');
     grid.appendChild(cell);
     cell.classList.add('cell');
-    //cell.textContent = `${i}`; - populates cells with numbers for quick ref
+
+    //add numbers to cells for troubleshooting UI
+    //cell.textContent = `${i}`;
     
     cell.addEventListener("mouseover", function(e) {
         e.target.style.background = mouseColor;       
