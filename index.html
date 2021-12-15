@@ -12,37 +12,46 @@
    
 <div class="shadow">
 
-    <div class="option-panel">
-
-        <div class="color-options">
-            <div class="option-buttons">
-                <button>Orange</button>
-                <button>Blue</button>
-            </div>
-            <div class="option-button-label">
-                <p>Colors</p>
-            </div>
-        </div>
-       
-        <div class="grid-options">
-            <div class="slidecontainer">
-                <input type="range" min="15" max="40" value="15" class="slider" id="gridRange">
-              </div>
-            <div class="size-button-label">Grid Sizes</div>
-        </div>
-
+    <div class="top-panel">
+        <h1>Etch-a-Sketch</h1>
     </div>
 
     <div class="container">
-            <div class="grid">
+            <div id="grid-display" class="grid">
         
         </div>
     </div>
 
-    <div class="reset-panel"><button>Reset Grid</button></div>
+
+    <div class="option-panel">
+
+        <div class="color-options">
+            <div class="option-buttons">
+                
+                <input type="color" id="colorpicker" class="colorPicker" value="#ff9900">
+            </div>
+            <div class="option-button-label">
+                <p><label for="colorpicker">Color Selector</label></p>
+            </div>
+        </div>
+       
+        <div class="reset"><button>Reset</button>
+        </div>
+
+        <div class="grid-options">
+            <div class="slidecontainer">
+                <input type="range" step="5" min="10" max="100" value="40" class="slider" id="gridRange">
+              </div>
+            <div class="size-button-label">Grid Size: <span class="sizeUI">40x40</span></div>
+        </div>
+
+    </div>
+    
 </div>
     
-<footer><p>Made by acaldwell1986</p></footer>
+<footer>    
+        <p>Copyright <span>&copy; 2021</span>   </p> <a href="https://github.com/acaldwell1986"><img src="github.png" alt="Github icon"><p>acaldwell1986</a> </p>
+    </footer>
 
 </body>
 </html>

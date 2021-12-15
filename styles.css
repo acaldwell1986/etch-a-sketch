@@ -20,19 +20,23 @@ html, body {
     display: flex;
     width: 900px;
     justify-content: center;
+    margin: 0;
+    padding: 0;
   }
   
-  /* 40x40 */
+  /* initialize 40x40 */
   .grid {
     display: grid;
     min-width: 610px;
     max-width: 610px;
     width: 610px;
     height: 610px;
-    grid-template-columns: repeat(50, 1fr);
-    grid-template-rows: repeat(50, 1fr);
+    grid-template-columns: repeat(40, 4fr);
+    grid-template-rows: repeat(40, 4fr);
     grid-gap: 0px;
     border: 5px solid black;
+    margin: 0;
+    padding: 0;
 
   }
   
@@ -42,9 +46,11 @@ html, body {
     align-items: center;
     display: flex;
     font-family: Arial;
-    font-size: .5rem;
+    font-size: .2rem;
     font-weight: bold;
     background: white;
+    margin: 0;
+    padding: 0;
   }
 
 h1 {
@@ -56,38 +62,46 @@ h1 {
     background: red;
     width: 900px;
     height: 100px;
-    border-top-right-radius: 25px;
-    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
 }
 
-.reset-panel {
+.top-panel {
     background: red;
     width: 900px;
     height: 100px;
-    border-bottom-right-radius: 25px;
-    border-bottom-left-radius: 25px;
+    
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.reset-panel button {
+.reset {
+    height:100%;
+    display: flex;
+    align-items: center;
+}
+
+.reset button {
     height: 50%;
-    background: white;
+    background-color: white;
+    border: 2px solid black;
+    min-width: 80px;
+}
+
+.reset button:hover {
+    opacity: .9;
 }
 
 p {
     margin: 0;
 }
-
-.color-options {
-    /* background: green; */
-}
-
 
 
 .slidecontainer {
@@ -100,16 +114,20 @@ p {
     appearance: none;
     width: 100%; /* Full-width */
     height: 25px; /* Specified height */
-    background: #ececec; /* Grey background */
+    background: #ffffff; 
     outline: none; /* Remove outline */
-    opacity: 0.8; /* Set transparency (for mouse-over effects on hover) */
+    opacity: 1; /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
     transition: opacity .2s;
+    border: 1px black solid;
+    margin: 0;
+    padding: 0;
   }
   
   /* Mouse-over effects */
   .slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
+    opacity: .9; /* Fully shown on mouse-over */
+    border: 1px black solid;
   }
   
   /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
@@ -118,13 +136,84 @@ p {
     appearance: none;
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
-    background: #0026ff; /* Green background */
+    background: #0026ff; 
     cursor: pointer; /* Cursor on hover */
+    margin: 0;
+    padding: 0;
   }
   
   .slider::-moz-range-thumb {
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
-    background: #0026ff; /* Green background */
+    background: #0026ff; 
     cursor: pointer; /* Cursor on hover */
   }
+
+  h1 {
+    color: white;
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    font-size: 5em;
+  }
+
+  .grid-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+
+  .color-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    
+  }
+
+  .color-options input {
+      min-width: 60px;
+      
+      margin-bottom: 5px;
+      background-color:white;
+  }
+
+  .option-buttons {
+      
+  }
+
+  footer {
+    min-height: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    margin-top: auto;
+    width: 100%;
+    color: #fff;
+    flex-direction: row;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+}
+
+footer p {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+img {
+    width: 50px;
+}
