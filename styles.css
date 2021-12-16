@@ -8,7 +8,6 @@ html, body {
     width: 100%;
 }
 
-
 .shadow {
     box-shadow: 5px 5px  10px rgba(0,0,0,0.6);
     border-radius: 25px;
@@ -27,28 +26,29 @@ html, body {
   /* initialize 40x40 */
   .grid {
     display: grid;
-    max-width: 500px;
-    max-height: 500px;
-    width: 500px;
-    height: 500px;
-    grid-template-columns: repeat(40, .5fr);
-    grid-template-rows: repeat(40, .5fr);
+    width: 501px;
+    height: 501px;
+    grid-template-columns: repeat(10, auto);
+    grid-template-rows: repeat(10, auto);
     margin: 0;
     padding: 0;
-    border: 1px solid black;
+    border: 5px solid black;
   }
   
   .cell {
      /* center the cell content */
     justify-content: center;
     align-items: center;
-    
     font-family: Arial;
     font-size: .2rem;
     font-weight: bold;
     background: white;
     margin: 0;
     padding: 0;
+    border: 0px;
+    float:    none;
+    overflow: hidden;
+    width:    auto;
   }
 
 h1 {
@@ -111,7 +111,7 @@ p {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
     width: 100%; /* Full-width */
-    height: 25px; /* Specified height */
+    height: 24px; /* Specified height */
     background: #ffffff; 
     outline: none; /* Remove outline */
     opacity: 1; /* Set transparency (for mouse-over effects on hover) */
@@ -172,13 +172,8 @@ p {
 
   .color-options input {
       min-width: 60px;
-      
       margin-bottom: 5px;
       background-color:white;
-  }
-
-  .option-buttons {
-      
   }
 
   footer {

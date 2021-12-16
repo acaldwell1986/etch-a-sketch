@@ -2,15 +2,15 @@ const container = document.querySelector('.container');
 const grid = document.querySelector('.grid');
 const reset = document.querySelector('.reset');
 const colorButtons = document.querySelectorAll('.option-buttons');
-const sizeButtons = document.querySelectorAll('.size-buttons');
 const sizeUI = document.querySelector('.size-button-label');
 const colorPick = document.querySelector('.colorPicker');
 
 let slider = document.getElementById("gridRange");
-let gridSize = 1600; // initializes grid at 40x40
+let gridSize = 100; // initializes grid at 40x40
 let mouseColor = 'orange';
 
 slider.addEventListener('mouseup', reDrawGrid, false);
+slider.addEventListener('input', updateUI, false);
 
 colorPick.addEventListener('input', colorPicker, false);
 
@@ -33,9 +33,16 @@ for (let i = 0; i < gridSize; i++) {
     }, false);
 }
 
-
-
 //colorButtons.forEach(button => { button.addEventListener('click', colorPicker) });
+
+function updateUI(size) {
+    let newSize = parseInt(size.target.value);
+    console.log(newSize);
+    sizeUI.removeChild(sizeUI.firstElementChild)
+    const sizeUpdate = document.createElement('span');
+    sizeUpdate.textContent = `${newSize}x${newSize}`;
+    sizeUI.appendChild(sizeUpdate)
+}
 
 reset.addEventListener('click', resetGrid);
 
@@ -48,13 +55,10 @@ function deleteGrid(parent) {
 function reDrawGrid(size) {
     deleteGrid(grid);
     let newSize = parseInt(size.target.value);
-    let frSize = .5;
+    let frSize = 'auto';
     gridSize = newSize * newSize;
     
-    sizeUI.removeChild(sizeUI.firstElementChild)
-    const sizeUpdate = document.createElement('span');
-    sizeUpdate.textContent = `${newSize}x${newSize}`;
-    sizeUI.appendChild(sizeUpdate)
+   
 
         for (let i = 0; i < gridSize; i++) {
             const cell = document.createElement('div');
@@ -69,8 +73,8 @@ function reDrawGrid(size) {
             }, false);
         };
 
-        grid.style.gridTemplateColumns = ` repeat(${newSize}, ${frSize}fr)`;
-        grid.style.gridTemplateRows = ` repeat(${newSize}, ${frSize}fr)`;
+        grid.style.gridTemplateColumns = ` repeat(${newSize}, ${frSize})`;
+        grid.style.gridTemplateRows = ` repeat(${newSize}, ${frSize})`;
 }
 
 function resetGrid() {
@@ -79,6 +83,4 @@ function resetGrid() {
         cells[i].style.background = "white"
      }
 }
-
-sizeButtons.forEach(button => { button.addEventListener('click', reDrawGrid)});
 
