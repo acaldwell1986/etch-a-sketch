@@ -10,7 +10,8 @@ let slider = document.getElementById("gridRange");
 let gridSize = 1600; // initializes grid at 40x40
 let mouseColor = 'orange';
 
-slider.addEventListener('input', reDrawGrid, false);
+slider.addEventListener('mouseup', reDrawGrid, false);
+
 colorPick.addEventListener('input', colorPicker, false);
 
 //allows user to change color type
@@ -47,7 +48,7 @@ function deleteGrid(parent) {
 function reDrawGrid(size) {
     deleteGrid(grid);
     let newSize = parseInt(size.target.value);
-    let frSize = Math.round(newSize / 10);
+    let frSize = .5;
     gridSize = newSize * newSize;
     
     sizeUI.removeChild(sizeUI.firstElementChild)
