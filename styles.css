@@ -197,10 +197,14 @@ footer a {
     color: white;
     padding-right: 5px;
 }
+footer p {
+  padding-right: 5px;
+}
 
 footer a:hover {
     text-decoration: underline;
     color: white;
+    padding-right: 5px;
 }
 
 img {
